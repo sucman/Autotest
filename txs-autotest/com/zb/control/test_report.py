@@ -13,7 +13,7 @@ class HtmlReport(object):
 
     @staticmethod
     def html_report(testsuite):
-        fp = open('index.html', 'wb')
+        fp = open('../../../index.html', 'wb')
         runner = HTMLTestRunnerCN.HTMLTestRunner(
             stream=fp,
             title='TXS Test Report',
