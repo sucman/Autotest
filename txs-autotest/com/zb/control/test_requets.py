@@ -27,6 +27,4 @@ class RequetsControl():
 if __name__ == '__main__':
     url = "https://javaapitest.txslicai.com/operation/launching_transition"
     a = RequetsControl.get_test(url)
-    print a.status_code
-    print a.text
     pass
