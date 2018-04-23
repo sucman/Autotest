@@ -16,7 +16,7 @@ class AssertOperation():
     def assert_response_node_not_null(self, path):
         response_type = json.loads(self.__res.text)
         node_values = jsonpath.jsonpath(response_type, path)
-        print node_values
+        # print node_values
         assert len(node_values) >= 1
 
     ##判断返回值的某节点值与预期结果是否一直

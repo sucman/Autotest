@@ -55,7 +55,7 @@ class Email:
         message.attach(MIMEText(mail_msg, 'html', 'utf-8'))
         # message = MIMEText('自动化测试报告', 'plain', 'utf-8')
         message['From'] = Header(mail_user)
-        # message['To'] = Header(receivers)
+        message['To'] = Header(",".join(config.MAIL_RECEIVERS))
         message['Subject'] = Header(subject, 'utf-8')
 
         # 构造附件
