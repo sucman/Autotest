@@ -9,11 +9,11 @@ from com.zb.testcase.testcase_pubapi import *
 
 
 def runner_main():
-    suite1 = unittest.TestLoader().loadTestsFromTestCase(Pubapi)
+    suite1 = unittest.TestLoader().loadTestsFromTestCase(Pubapi)  # 用例添加到suite
     suite2 = unittest.TestLoader().loadTestsFromTestCase(Products)
     # unittest.TextTestRunner(verbosity=2).run(suite)
 
-    alltests = unittest.TestSuite((suite1, suite2))
+    alltests = unittest.TestSuite((suite1, suite2))  # 多个suite嵌套
     HtmlReport.html_report(alltests)
 
 

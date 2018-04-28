@@ -15,24 +15,26 @@ class RequestsControl():
         data = self.__request_info[2]
         data = json.loads(data)
         try:
-            logging.info("==http post url: %s" % self.__request_info[1])
-            logging.info("==http request: %s" % data)
+            logging.info("http post url: %s" % self.__request_info[1])
+            logging.info("http request: %s" % data)
             res = requests.post(self.__request_info[1], json=data, headers=headers)
-            logging.info("==http response: %s " % res.text)
+            logging.info("http response: %s " % res.text)
             return res
         except Exception, e:
             logging.error("http error:%s" % e)
 
     def get_test(self):
         try:
-            logging.info("==http get url: %s" % self.__request_info[1])
+            logging.info("http get url: %s" % self.__request_info[1])
             res = requests.get(url=self.__request_info[1])
-            logging.info("==http response: %s " % res.text)
+            logging.info("http response: %s " % res.text)
             return res
         except Exception, e:
             logging.error("http error:%s" % e)
             # return
 
+    ###判断请求是get还是post
+    ### 是否需要先获取cookie
     def request_test(self):
         if self.__request_info[0] == 0:
             return self.get_test()

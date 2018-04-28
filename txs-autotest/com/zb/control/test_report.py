@@ -17,6 +17,7 @@ class HtmlReport(object):
     def __init__(self):
         pass
 
+    ###报告模板
     @staticmethod
     def html_report(testsuite, tester="pengjunjie"):
         fp = open('../../../index.html', 'wb')
@@ -33,6 +34,7 @@ class Email:
     def __init__(self):
         pass
 
+    ###邮件报告简要
     def get_report_info(self):
         info = ""
         try:
@@ -44,6 +46,7 @@ class Email:
             logging.error("open file error :%s" % e)
         return info
 
+    ###发送邮件
     def send_email(self):
         mail_host = config.MAIL_HOST  # 设置服务器
         mail_user = config.MAIL_USER  # 用户名
@@ -80,9 +83,9 @@ class LogSeting:
     def __init__(self):
         pass
 
+    ###日志初始化
     @staticmethod
     def log_init():
-        ###logfile output setting
         log_name = "../log" + str(time.strftime("-%Y%m%d-%H%M%S", time.localtime())) + ".log"
         logging.basicConfig(level=logging.INFO,
                             format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
@@ -103,20 +106,7 @@ class LogSeting:
     ###打印case运行日志log的装饰器
     @staticmethod
     def casename(func):
-        def run(*argv):
-            # logging.info("==start case: %s" % func.__name__)
-            print ("==start case: %s" % func.__name__)
-            if argv:
-                res = func(*argv)
-            else:
-                res = func()
-            return res
-        return run
-if __name__ == '__main__':
-
-    @LogSeting.casename
-    def test(a):
-        print "333"
-
-
-    test(1)
+        def wrapper(*args, **kw):
+            logging.info('==start case %s' % func.__name__)
+            return func(*args, **kw)
+        return wrapper

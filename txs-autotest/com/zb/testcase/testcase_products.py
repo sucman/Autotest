@@ -14,6 +14,7 @@ class Products(unittest.TestCase):
         pass
 
     @ddt.data(*Datasource.get_excel_data("../testdata/productdetail.xlsx"))
+    # @ddt.unpack
     @LogSeting.casename
     def test_productdetail(self, data):
         data1 = data
