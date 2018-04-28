@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
-
+import logging
+import pymysql
 from openpyxl import *
+
+from com.zb.control import config
+
 
 class Datasource():
     def __init__(self):
@@ -19,3 +23,19 @@ class Datasource():
             # yield list_temp
         return case_list
 
+    # 连db
+    @staticmethod
+    def get_interface_template(interface_name):
+        try:
+            db = pymysql.connect(host=config.DB_HOST, port=config.DB_PORT, user=config.DB_USER, password=config.DB_PWD,
+                                 db=config.DB_DATABASE, charset='utf8')
+        except Exception, dberr:
+            logging.error("connect da error:%s" % dberr)
+            return
+        cu = db.cursor()
+        cu.execute("SELECT a.type,a.url,a.json FROM interface_template a WHERE a.interface_name=%s", interface_name)
+        # db.commit()
+        result = cu.fetchall()[0]
+        result = list(result)
+        db.close()
+        return result

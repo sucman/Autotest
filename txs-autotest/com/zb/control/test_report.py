@@ -47,7 +47,7 @@ class Email:
         mail_user = config.MAIL_USER  # 用户名
         mail_pass = config.MAIL_PWD  # 口令
         sender = config.MAIL_SENDER
-        receivers = config.MAIL_RECEIVERS  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+        receivers = config.MAIL_RECEIVERS  # 接收邮件
 
         subject = '自动化测试报告 ' + str(time.strftime("%Y%m%d %H:%M:%S", time.localtime()))
         mail_msg = '<h2 style="font-family: Microsoft YaHei">TXS Autotest Report</h2>\n' + self.get_report_info() + '<p><a href="http://192.168.0.78:8080/autotest/index.html">点击此处查看详细报告</a> </p>'

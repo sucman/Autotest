@@ -4,11 +4,11 @@ import unittest
 import os
 
 from com.zb.control.test_report import HtmlReport, Email
-from com.zb.testcase.testcase import *
+from com.zb.testcase.testcase_pubapi import *
 
 
 def runner_main():
-    suite1 = unittest.TestLoader().loadTestsFromTestCase(Pubapi_1)
+    suite1 = unittest.TestLoader().loadTestsFromTestCase(Pubapi)
     # suite2 = unittest.TestLoader().loadTestsFromTestCase()
 
     # unittest.TextTestRunner(verbosity=2).run(suite)
