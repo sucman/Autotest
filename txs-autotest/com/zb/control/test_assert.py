@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import requests
 import json
 import jsonpath
+import logging
 
 
 class AssertOperation():
@@ -20,10 +20,7 @@ class AssertOperation():
         assert len(node_values) >= 1
 
     ##判断返回值的某节点值与预期结果是否一直
-    def assert_response_values(self, path,expected_result):
+    def assert_response_values(self, path, expected_result):
         response_type = json.loads(self.__res.text)
         node_values = jsonpath.jsonpath(response_type, path)
         assert node_values == expected_result
-
-
-

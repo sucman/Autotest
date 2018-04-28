@@ -35,7 +35,11 @@ class Datasource():
         cu = db.cursor()
         cu.execute("SELECT a.type,a.url,a.json FROM interface_template a WHERE a.interface_name=%s", interface_name)
         # db.commit()
-        result = cu.fetchall()[0]
-        result = list(result)
-        db.close()
-        return result
+        result = cu.fetchall()
+        try:
+            result = list(result[0])
+        except Exception, e:
+            logging.error("select errror:%s" % e)
+        finally:
+            db.close()
+            return result

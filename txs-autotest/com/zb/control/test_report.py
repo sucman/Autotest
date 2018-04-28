@@ -13,13 +13,12 @@ from email.mime.text import MIMEText
 from com.zb.control import config
 
 
-
 class HtmlReport(object):
     def __init__(self):
         pass
 
     @staticmethod
-    def html_report(testsuite,tester="pengjunjie"):
+    def html_report(testsuite, tester="pengjunjie"):
         fp = open('../../../index.html', 'wb')
         runner = HTMLTestRunnerCN.HTMLTestRunner(
             stream=fp,
@@ -36,10 +35,13 @@ class Email:
 
     def get_report_info(self):
         info = ""
-        with open('../../../index.html', 'rb') as f:
-            for line in f.readlines():
-                if line.find("<p class='attribute'><strong>") >= 0:
-                    info = info + line
+        try:
+            with open('../../../index.html', 'rb') as f:
+                for line in f.readlines():
+                    if line.find("<p class='attribute'><strong>") >= 0:
+                        info = info + line
+        except Exception, e:
+            logging.error("open file error :%s" % e)
         return info
 
     def send_email(self):
@@ -63,13 +65,15 @@ class Email:
         att1["Content-Type"] = 'application/octet-stream'
         att1["Content-Disposition"] = 'attachment; filename="report.html"'
         message.attach(att1)
-
-        smtpObj = smtplib.SMTP(mail_host, 25)
-        # smtpObj.set_debuglevel(1)
-        smtpObj.starttls()
-        smtpObj.login(mail_user, mail_pass)
-        smtpObj.sendmail(sender, receivers, message.as_string())
-        smtpObj.quit()
+        try:
+            smtpObj = smtplib.SMTP(mail_host, 25)
+            # smtpObj.set_debuglevel(1)
+            smtpObj.starttls()
+            smtpObj.login(mail_user, mail_pass)
+            smtpObj.sendmail(sender, receivers, message.as_string())
+            smtpObj.quit()
+        except Exception, e:
+            logging.error("email error: %s" % e)
 
 
 class LogSeting:
@@ -78,10 +82,41 @@ class LogSeting:
 
     @staticmethod
     def log_init():
-        log_name = "log" + str(time.strftime("-%Y%m%d-%H%M%S", time.localtime())) + ".log"
-        logging.basicConfig(level=logging.DEBUG,
+        ###logfile output setting
+        log_name = "../log" + str(time.strftime("-%Y%m%d-%H%M%S", time.localtime())) + ".log"
+        logging.basicConfig(level=logging.INFO,
                             format='%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s',
                             datefmt='%a, %d %b %Y %H:%M:%S',
                             filename=log_name,
                             filemode='w')
 
+        '''
+        ###console output setting
+        console = logging.StreamHandler()  # 定义console handler
+        console.setLevel(logging.INFO)  # 定义该handler级别
+        formatter = logging.Formatter('%(asctime)s  %(filename)s : %(levelname)s  %(message)s')  # 定义该handler格式
+        console.setFormatter(formatter)
+        # Create an instance
+        logging.getLogger().addHandler(console)  # 实例化添加handler
+        '''
+
+    ###打印case运行日志log的装饰器
+    @staticmethod
+    def casename(func):
+        def run(*argv):
+            # logging.info("==start case: %s" % func.__name__)
+            print ("==start case: %s" % func.__name__)
+            if argv:
+                res = func(*argv)
+            else:
+                res = func()
+            return res
+        return run
+if __name__ == '__main__':
+
+    @LogSeting.casename
+    def test(a):
+        print "333"
+
+
+    test(1)

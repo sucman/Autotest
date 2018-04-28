@@ -16,13 +16,12 @@ MAIL_PWD = "2.pengjj"
 MAIL_SENDER = 'pengjunjie@zillionfortune.com'
 MAIL_RECEIVERS = ["pengjunjie@zillionfortune.com"]
 
-
 """
 db setting
 """
 
-DB_HOST="rm-bp192xt97e9ynf5ov.mysql.rds.aliyuncs.com"
-DB_USER="txs_java"
-DB_PWD="af3PcALxU8N1pJ4Ot8a5"
-DB_DATABASE="autotest"
-DB_PORT=3306
+DB_HOST = "rm-bp192xt97e9ynf5ov.mysql.rds.aliyuncs.com"
+DB_USER = "txs_java"
+DB_PWD = "af3PcALxU8N1pJ4Ot8a5"
+DB_DATABASE = "autotest"
+DB_PORT = 3306
