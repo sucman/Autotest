@@ -13,20 +13,22 @@ class RequestsControl():
     def post_test(self):
         headers = {'content-type': 'application/json'}
         data = self.__request_info[2]
-        data = json.loads(data)
+        url = self.__request_info[1]
+        # data = json.loads(data)
         try:
-            logging.info("http post url: %s" % self.__request_info[1])
+            logging.info("http post url: %s" % url)
             logging.info("http request: %s" % data)
-            res = requests.post(self.__request_info[1], json=data, headers=headers)
+            res = requests.post(url, json=data, headers=headers) #psot请求
             logging.info("http response: %s " % res.text)
             return res
         except Exception, e:
             logging.error("http error:%s" % e)
 
     def get_test(self):
+        url = self.__request_info[1]
         try:
-            logging.info("http get url: %s" % self.__request_info[1])
-            res = requests.get(url=self.__request_info[1])
+            logging.info("http get url: %s" % url)
+            res = requests.get(url=url) #get请求
             logging.info("http response: %s " % res.text)
             return res
         except Exception, e:
@@ -34,7 +36,7 @@ class RequestsControl():
             # return
 
     ###判断请求是get还是post
-    ### 是否需要先获取cookie
+    ### 是否需要先获取cookie ##待增加
     def request_test(self):
         if self.__request_info[0] == 0:
             return self.get_test()

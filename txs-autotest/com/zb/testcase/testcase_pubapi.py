@@ -14,7 +14,7 @@ class Pubapi(unittest.TestCase):
 
     @LogSeting.casename
     def test_swhz_banner(self):
-        body = Datasource.get_interface_template("swhz_banner")  # db里面取接口请求方法，url，json
+        body = Datasource.get_request_info("swhz_banner")  # db里面取接口请求方法，url，json
         rc = RequestsControl(body)  # 实例化请求
         result = rc.request_test()  # 发送请求并拿到response
         ao = AssertOperation(result)  # 实例化断言
@@ -23,7 +23,7 @@ class Pubapi(unittest.TestCase):
 
     @LogSeting.casename
     def test_launching_transition(self):
-        body = Datasource.get_interface_template("launching_transition")
+        body = Datasource.get_request_info("launching_transition")
         rc = RequestsControl(body)
         result = rc.request_test()
         ao = AssertOperation(result)
@@ -32,7 +32,7 @@ class Pubapi(unittest.TestCase):
 
     @LogSeting.casename
     def test_new_welfare(self):
-        body = Datasource.get_interface_template("new_welfare")
+        body = Datasource.get_request_info("new_welfare")
         rc = RequestsControl(body)
         result = rc.request_test()
         ao = AssertOperation(result)
@@ -41,7 +41,7 @@ class Pubapi(unittest.TestCase):
 
     @LogSeting.casename
     def test_old_welfare(self):
-        body = Datasource.get_interface_template("old_welfare")
+        body = Datasource.get_request_info("old_welfare")
         rc = RequestsControl(body)
         result = rc.request_test()
         ao = AssertOperation(result)
@@ -50,7 +50,7 @@ class Pubapi(unittest.TestCase):
 
     @LogSeting.casename
     def test_financing_top(self):
-        body = Datasource.get_interface_template("financing_top")
+        body = Datasource.get_request_info("financing_top")
         rc = RequestsControl(body)
         result = rc.request_test()
         ao = AssertOperation(result)
@@ -59,7 +59,7 @@ class Pubapi(unittest.TestCase):
 
     @LogSeting.casename
     def test_old(self):
-        body = Datasource.get_interface_template("old")
+        body = Datasource.get_request_info("old")
         rc = RequestsControl(body)
         result = rc.request_test()
         ao = AssertOperation(result)
@@ -68,7 +68,7 @@ class Pubapi(unittest.TestCase):
 
     @LogSeting.casename
     def test_new(self):
-        body = Datasource.get_interface_template("new")
+        body = Datasource.get_request_info("new")
         rc = RequestsControl(body)
         result = rc.request_test()
         ao = AssertOperation(result)

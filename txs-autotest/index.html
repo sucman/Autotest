@@ -123,9 +123,9 @@ function html_escape(s) {
 <div class='heading'>
 <h1 style="font-family: Microsoft YaHei">TXS Autotest Report</h1>
 <p class='attribute'><strong>测试人员 : </strong> pengjunjie</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-04-28 17:23:40</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:07.167000</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 9，通过 9，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-05-04 10:49:01</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:01.655000</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 9，通过 8，错误 1，通过率= 88.89%</p>
 
 <p class='description'>txs autotest for demo</p>
 </div>
@@ -133,9 +133,9 @@ function html_escape(s) {
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 88.89% }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 9 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 8 }</a>
 <a class="btn btn-info" href='javascript:showCase(3)'>所有{ 9 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
@@ -200,48 +200,42 @@ function html_escape(s) {
     <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
-<tr class='passClass warning'>
+<tr class='errorClass warning'>
     <td>com.zb.testcase.testcase_products.Products</td>
     <td class="text-center">2</td>
-    <td class="text-center">2</td>
+    <td class="text-center">1</td>
     <td class="text-center">0</td>
-    <td class="text-center">0</td>
+    <td class="text-center">1</td>
     <td class="text-center"><a href="javascript:showClassDetail('c2',2)" class="detail" id='c2'>详细</a></td>
 </tr>
 
 <tr id='pt2_1' class='hiddenRow'>
     <td class='passCase'><div class='testcase'>test_productdetail_1</div></td>
-    <td colspan='5' align='center'>
-    <!--默认收起错误信息 -Findyou
-    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
-    <div id='div_pt2_1' class="collapse">  -->
-
-    <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_1'>通过</button>
-    <div id='div_pt2_1' class="collapse in">
-    <pre>
-    
-pt2_1: [1L, u'968732659754864640', 1L, 1200L]
-
-
-    </pre>
-    </div>
-    </td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
-<tr id='pt2_2' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_productdetail_2</div></td>
+<tr id='ft2_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_productdetail_2</div></td>
     <td colspan='5' align='center'>
     <!--默认收起错误信息 -Findyou
-    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
-    <div id='div_pt2_2' class="collapse">  -->
+    <button id='btn_ft2_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_2'>错误</button>
+    <div id='div_ft2_2' class="collapse">  -->
 
     <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt2_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt2_2'>通过</button>
-    <div id='div_pt2_2' class="collapse in">
+    <button id='btn_ft2_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_2'>错误</button>
+    <div id='div_ft2_2' class="collapse in">
     <pre>
     
-pt2_2: [2L, u'968732659754864642', 2L, 200L]
+ft2_2: Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "F:\git\txs-qa\txs-autotest\com\zb\control\test_report.py", line 111, in wrapper
+    return func(*args, **kw)
+  File "F:\git\txs-qa\txs-autotest\com\zb\testcase\testcase_products.py", line 25, in test_productdetail
+    ao.assert_response_node_not_null("$..duration")  # 判断某字段非空
+  File "F:\git\txs-qa\txs-autotest\com\zb\control\test_assert.py", line 20, in assert_response_node_not_null
+    assert len(node_values) &gt;= 1
+TypeError: object of type 'bool' has no len()
 
 
     </pre>
@@ -252,10 +246,10 @@ pt2_2: [2L, u'968732659754864642', 2L, 200L]
 <tr id='total_row' class="text-center active">
     <td>总计</td>
     <td>9</td>
-    <td>9</td>
+    <td>8</td>
     <td>0</td>
-    <td>0</td>
-    <td>通过率：100.00%</td>
+    <td>1</td>
+    <td>通过率：88.89%</td>
 </tr>
 </table>
 

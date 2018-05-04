@@ -40,7 +40,7 @@ class Email:
         try:
             with open('../../../index.html', 'rb') as f:
                 for line in f.readlines():
-                    if line.find("<p class='attribute'><strong>") >= 0:
+                    if line.find("<p class='attribute'><strong>") >= 0:  # 截取一段
                         info = info + line
         except Exception, e:
             logging.error("open file error :%s" % e)
@@ -109,4 +109,5 @@ class LogSeting:
         def wrapper(*args, **kw):
             logging.info('==start case %s' % func.__name__)
             return func(*args, **kw)
+
         return wrapper

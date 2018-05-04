@@ -17,15 +17,12 @@ class Products(unittest.TestCase):
     # @ddt.unpack
     @LogSeting.casename
     def test_productdetail(self, data):
-        data1 = data
-        print data1
-        requsts_info = Datasource.get_interface_template("productdetail")  # db里面取接口请求方法，url，json
+        requsts_info = Datasource.get_request_info("productdetail", data)  # db里面取接口请求方法，url，json，并用excel关键字替换模版json
         rc = RequestsControl(requsts_info)  # 实例化请求
         result = rc.request_test()  # 发送请求并拿到response
-        # print result
         ao = AssertOperation(result)  # 实例化断言
         ao.assert_status_code()  # 判断状态码
-        # ao.assert_response_node_not_null("$..picUrl")  # 判断某字段非空
+        ao.assert_response_node_not_null("$..duration")  # 判断某字段非空
 
     def tearDown(self):
         pass
