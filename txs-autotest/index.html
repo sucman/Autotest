@@ -123,9 +123,9 @@ function html_escape(s) {
 <div class='heading'>
 <h1 style="font-family: Microsoft YaHei">TXS Autotest Report</h1>
 <p class='attribute'><strong>测试人员 : </strong> pengjunjie</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-05-04 10:49:01</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:01.655000</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 9，通过 8，错误 1，通过率= 88.89%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-05-05 12:21:11</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:00.229026</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 9，错误 9，通过率= 0.00%</p>
 
 <p class='description'>txs autotest for demo</p>
 </div>
@@ -133,9 +133,9 @@ function html_escape(s) {
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 88.89% }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 0.00% }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 8 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 0 }</a>
 <a class="btn btn-info" href='javascript:showCase(3)'>所有{ 9 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
@@ -156,62 +156,240 @@ function html_escape(s) {
     <td>详细</td>
 </tr>
 
-<tr class='passClass warning'>
+<tr class='errorClass warning'>
     <td>com.zb.testcase.testcase_pubapi.Pubapi</td>
     <td class="text-center">7</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
     <td class="text-center">7</td>
-    <td class="text-center">0</td>
-    <td class="text-center">0</td>
     <td class="text-center"><a href="javascript:showClassDetail('c1',7)" class="detail" id='c1'>详细</a></td>
 </tr>
 
-<tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_financing_top</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_financing_top</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse in">
+    <pre>
+    
+ft1_1: Traceback (most recent call last):
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_report.py", line 111, in wrapper
+    return func(*args, **kw)
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/testcase/testcase_pubapi.py", line 55, in test_financing_top
+    result = rc.request_test()
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_requests.py", line 41, in request_test
+    if self.__request_info[0] == 0:
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_2' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_launching_transition</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_launching_transition</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
+    <div id='div_ft1_2' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
+    <div id='div_ft1_2' class="collapse in">
+    <pre>
+    
+ft1_2: Traceback (most recent call last):
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_report.py", line 111, in wrapper
+    return func(*args, **kw)
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/testcase/testcase_pubapi.py", line 28, in test_launching_transition
+    result = rc.request_test()
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_requests.py", line 41, in request_test
+    if self.__request_info[0] == 0:
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_3' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_new</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_new</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_3'>错误</button>
+    <div id='div_ft1_3' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_3'>错误</button>
+    <div id='div_ft1_3' class="collapse in">
+    <pre>
+    
+ft1_3: Traceback (most recent call last):
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_report.py", line 111, in wrapper
+    return func(*args, **kw)
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/testcase/testcase_pubapi.py", line 73, in test_new
+    result = rc.request_test()
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_requests.py", line 41, in request_test
+    if self.__request_info[0] == 0:
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_4' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_new_welfare</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_new_welfare</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_4' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_4'>错误</button>
+    <div id='div_ft1_4' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_4' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_4'>错误</button>
+    <div id='div_ft1_4' class="collapse in">
+    <pre>
+    
+ft1_4: Traceback (most recent call last):
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_report.py", line 111, in wrapper
+    return func(*args, **kw)
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/testcase/testcase_pubapi.py", line 37, in test_new_welfare
+    result = rc.request_test()
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_requests.py", line 41, in request_test
+    if self.__request_info[0] == 0:
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_5' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_old</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_old</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_5' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_5'>错误</button>
+    <div id='div_ft1_5' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_5' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_5'>错误</button>
+    <div id='div_ft1_5' class="collapse in">
+    <pre>
+    
+ft1_5: Traceback (most recent call last):
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_report.py", line 111, in wrapper
+    return func(*args, **kw)
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/testcase/testcase_pubapi.py", line 64, in test_old
+    result = rc.request_test()
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_requests.py", line 41, in request_test
+    if self.__request_info[0] == 0:
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_6' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_old_welfare</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_old_welfare</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_6' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_6'>错误</button>
+    <div id='div_ft1_6' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_6' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_6'>错误</button>
+    <div id='div_ft1_6' class="collapse in">
+    <pre>
+    
+ft1_6: Traceback (most recent call last):
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_report.py", line 111, in wrapper
+    return func(*args, **kw)
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/testcase/testcase_pubapi.py", line 46, in test_old_welfare
+    result = rc.request_test()
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_requests.py", line 41, in request_test
+    if self.__request_info[0] == 0:
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
-<tr id='pt1_7' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_swhz_banner</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft1_7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_swhz_banner</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_7' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_7'>错误</button>
+    <div id='div_ft1_7' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_7' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_7'>错误</button>
+    <div id='div_ft1_7' class="collapse in">
+    <pre>
+    
+ft1_7: Traceback (most recent call last):
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_report.py", line 111, in wrapper
+    return func(*args, **kw)
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/testcase/testcase_pubapi.py", line 19, in test_swhz_banner
+    result = rc.request_test()  # 发送请求并拿到response
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_requests.py", line 41, in request_test
+    if self.__request_info[0] == 0:
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
 <tr class='errorClass warning'>
     <td>com.zb.testcase.testcase_products.Products</td>
     <td class="text-center">2</td>
-    <td class="text-center">1</td>
     <td class="text-center">0</td>
-    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">2</td>
     <td class="text-center"><a href="javascript:showClassDetail('c2',2)" class="detail" id='c2'>详细</a></td>
 </tr>
 
-<tr id='pt2_1' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_productdetail_1</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+<tr id='ft2_1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_productdetail_1</div></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft2_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft2_1'>错误</button>
+    <div id='div_ft2_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft2_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft2_1'>错误</button>
+    <div id='div_ft2_1' class="collapse in">
+    <pre>
+    
+ft2_1: Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/ddt.py", line 145, in wrapper
+    return func(self, *args, **kwargs)
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_report.py", line 111, in wrapper
+    return func(*args, **kw)
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/testcase/testcase_products.py", line 22, in test_productdetail
+    result = rc.request_test()  # 发送请求并拿到response
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_requests.py", line 41, in request_test
+    if self.__request_info[0] == 0:
+TypeError: 'NoneType' object has no attribute '__getitem__'
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
 <tr id='ft2_2' class='none'>
@@ -227,15 +405,15 @@ function html_escape(s) {
     <pre>
     
 ft2_2: Traceback (most recent call last):
-  File "C:\Python27\lib\site-packages\ddt.py", line 145, in wrapper
+  File "/Library/Python/2.7/site-packages/ddt.py", line 145, in wrapper
     return func(self, *args, **kwargs)
-  File "F:\git\txs-qa\txs-autotest\com\zb\control\test_report.py", line 111, in wrapper
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_report.py", line 111, in wrapper
     return func(*args, **kw)
-  File "F:\git\txs-qa\txs-autotest\com\zb\testcase\testcase_products.py", line 25, in test_productdetail
-    ao.assert_response_node_not_null("$..duration")  # 判断某字段非空
-  File "F:\git\txs-qa\txs-autotest\com\zb\control\test_assert.py", line 20, in assert_response_node_not_null
-    assert len(node_values) &gt;= 1
-TypeError: object of type 'bool' has no len()
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/testcase/testcase_products.py", line 22, in test_productdetail
+    result = rc.request_test()  # 发送请求并拿到response
+  File "/Users/xiangyongbo/PycharmProjects/txs-qa/txs-autotest/com/zb/control/test_requests.py", line 41, in request_test
+    if self.__request_info[0] == 0:
+TypeError: 'NoneType' object has no attribute '__getitem__'
 
 
     </pre>
@@ -246,10 +424,10 @@ TypeError: object of type 'bool' has no len()
 <tr id='total_row' class="text-center active">
     <td>总计</td>
     <td>9</td>
-    <td>8</td>
     <td>0</td>
-    <td>1</td>
-    <td>通过率：88.89%</td>
+    <td>0</td>
+    <td>9</td>
+    <td>通过率：0.00%</td>
 </tr>
 </table>
 
