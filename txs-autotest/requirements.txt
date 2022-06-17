@@ -35,7 +35,7 @@ pywin32==221
 queuelib==1.4.2
 requests==2.18.4
 schedule==0.4.3
-Scrapy==1.4.0
+Scrapy==2.6.1
 service-identity==17.0.0
 six==1.11.0
 Twisted==17.9.0
